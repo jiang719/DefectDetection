@@ -1,5 +1,4 @@
 import codecs
-
 import torch
 
 from data.dictionary import Dictionary
@@ -16,7 +15,7 @@ class DataLoader:
     def load_data(self, filepath):
         fp = codecs.open(filepath, 'r', 'utf-8')
         instance, context_before, context_after, y = None, None, None, None
-        for i, l in enumerate(fp.readlines()[:10000]):
+        for i, l in enumerate(fp.readlines()):
             if i % 4 == 0:
                 instance = self.dictionary.index(l.strip().split())
             elif i % 4 == 1:
